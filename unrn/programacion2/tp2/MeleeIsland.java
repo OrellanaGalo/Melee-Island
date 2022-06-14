@@ -53,27 +53,27 @@ public class MeleeIsland {
         }
     }
 
-    public MeleeIsland beberGrog(){
+    public MeleeIsland beberGrog(){ // Falta desarrollar el algoritmo
         return null;
     }
 
-    public MeleeIsland pelear(){
+    public MeleeIsland pelear(){ // Falta desarrollar el algoritmo
         return null;
     }
 
-    public MeleeIsland peleas(){
+    public MeleeIsland peleas(){ // Falta desarrollar el algoritmo
         return null;
     }
 
-    public MeleeIsland grogsBebidos(){
+    public MeleeIsland grogsBebidos(){ // Falta desarrollar el algoritmo
         return null;
     }
 
-    public MeleeIsland alcoholEnSangre(){
+    public MeleeIsland alcoholEnSangre(){ // Falta desarrollar el algoritmo
         return null;
     }
 
-    public MeleeIsland insultosQueConoce(){
+    public MeleeIsland insultosQueConoce(){ // Falta desarrollar el algoritmo
         return null;
     }
 }
