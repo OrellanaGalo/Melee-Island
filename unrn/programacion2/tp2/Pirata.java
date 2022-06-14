@@ -7,20 +7,16 @@ public class Pirata {
     private String nombre_pirata;
     private TreeSet<Insulto> insultos;
 
-    public String getNombre_pirata() {
+    public String getNombre_pirata(){
         return nombre_pirata;
     }
 
-    public TreeSet<Insulto> getInsultos() {
+    public TreeSet<Insulto> getInsultos(){
         return insultos;
     }
 
-    public Pirata(String nombre_pirata, TreeSet<Insulto> insultos){
-        this.nombre_pirata = nombre_pirata;
-        this.insultos = new TreeSet<>();
-
-        for(Insulto in : insultos){
-            this.insultos.add(in);
-        }
+    public Pirata(String nombre, TreeSet<Insulto> insultos){
+        this.nombre_pirata = nombre;
+        this.insultos = insultos;
     }
 }

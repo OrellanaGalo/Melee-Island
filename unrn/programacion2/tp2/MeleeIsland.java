@@ -7,6 +7,7 @@ public class MeleeIsland {
     private TreeMap<String, InfoPirata> Info_pirata;
     private TreeMap<String, Grog> grogs;
     private TreeSet<String> piratas;
+    private TreeSet<InfoPirata> empezar;
     private String mas_buscapleitos;
     private String mas_picante;
     private String proximo_grog;
@@ -15,7 +16,7 @@ public class MeleeIsland {
         return Info_pirata;
     }
 
-    public TreeSet<String> pirata(){
+    public TreeSet<String> piratas(){
         return piratas;
     }
 
@@ -35,8 +36,8 @@ public class MeleeIsland {
         return grogs;
     }
 
-    public MeleeIsland empezar(TreeMap<Pirata>){
-
+    public TreeSet<InfoPirata> empezar(){
+        return empezar;
     }
 
     public void agregarPirata(String pirata, TreeSet<Insulto> insultos){
@@ -44,31 +45,35 @@ public class MeleeIsland {
             throw new IllegalStateException("El pirata que se desea agregar ya esta en el diccionario.");
         } else {
             this.piratas.add(pirata);
-            this.Info_pirata.put(pirata, new InfoPirata(pirata, insultos));
+            if(Info_pirata.containsKey(insultos)){
+                this.Info_pirata.get(insultos);
+            } else {
+                this.Info_pirata.put(pirata, new InfoPirata(pirata, insultos));
+            }
         }
     }
 
     public MeleeIsland beberGrog(){
-
+        return null;
     }
 
     public MeleeIsland pelear(){
-
+        return null;
     }
 
     public MeleeIsland peleas(){
-
+        return null;
     }
 
     public MeleeIsland grogsBebidos(){
-
+        return null;
     }
 
     public MeleeIsland alcoholEnSangre(){
-
+        return null;
     }
 
     public MeleeIsland insultosQueConoce(){
-
+        return null;
     }
 }
