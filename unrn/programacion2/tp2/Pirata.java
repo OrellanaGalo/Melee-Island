@@ -1,7 +1,6 @@
 package unrn.programacion2.tp2;
 
 import java.util.TreeSet;
-
 public class Pirata {
 
     private String nombre_pirata;
@@ -19,4 +18,10 @@ public class Pirata {
         this.nombre_pirata = nombre;
         this.insultos = insultos;
     }
+
+    @Override
+    public String toString() {
+        return "Pirata [" + "Nombre Pirata: '" + nombre_pirata + '\'' + ", Insultos: " + insultos + ']';
+    }
 }
+

@@ -17,4 +17,9 @@ public class Pelea {
         this.nombre_pirata = nombrePirata;
         this.resultado = resultado;
     }
+
+    @Override
+    public String toString(){
+        return "Pelea [" + "Nombre Pirata: '" + nombre_pirata + "\'" + ". Resultado: " + resultado + "]";
+    }
 }

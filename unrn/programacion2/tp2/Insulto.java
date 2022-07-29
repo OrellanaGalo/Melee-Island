@@ -20,8 +20,6 @@ public class Insulto {
 
     @Override
     public String toString() {
-        return "Insulto{" +
-                "nombre_insulto='" + nombre_insulto + '\'' +
-                ", aggro=" + aggro + '}';
+        return "Insulto [" + "Insulto: '" + nombre_insulto + '\'' + ", Agresividad: " + aggro + ']';
     }
 }

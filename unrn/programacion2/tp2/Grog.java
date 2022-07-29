@@ -1,7 +1,5 @@
 package unrn.programacion2.tp2;
 
-import java.util.TreeMap;
-
 public class Grog {
 
     private Integer alcohol;
