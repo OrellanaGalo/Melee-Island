@@ -1,16 +1,17 @@
 package unrn.programacion2.tp2;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.TreeSet;
 
 public class InfoPirata {
-    private String nombre_pirata;
-    private TreeSet<Insulto> insultos;
-    private Integer nivel_alcohol;
-    private ArrayList<String> grog;
+    final String nombre_pirata;
+    private Integer alcoholEnSangre;
+    private ArrayList<String> grogsBebidos;
+    final TreeSet<Insulto> insultos;
     private ArrayList<Pelea> peleas;
 
-    public String getNombre_pirata(){
+    public String getNombre(){
         return nombre_pirata;
     }
 
@@ -18,24 +19,22 @@ public class InfoPirata {
         return insultos;
     }
 
-    public Integer alcoholEnSangre(){
-        return nivel_alcohol;
+    public Integer getAlcoholEnSangre(){
+        return alcoholEnSangre;
     }
 
     public ArrayList<String> getGrog(){
-        return grog;
+        return grogsBebidos;
     }
 
     public ArrayList<Pelea> getPeleas(){
         return peleas;
     }
 
-    public InfoPirata(String nombre, TreeSet<Insulto> insultos){
+    public InfoPirata(String nombre, Collection<Insulto> insultos){
         this.nombre_pirata = nombre;
         this.insultos = new TreeSet<>();
 
-        for(Insulto in : insultos){
-            this.insultos.add(in);
-        }
+        this.insultos.addAll(insultos);
     }
 }

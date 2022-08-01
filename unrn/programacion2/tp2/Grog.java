@@ -1,23 +1,20 @@
 package unrn.programacion2.tp2;
 
-public class Grog {
+// Hay que implementar la interfaz Comparable<Grog> para poder construir un TreeSet de Grogs.
 
-    private Integer alcohol;
-    private Integer unidades;
+public class Grog{
+
+    final String grog;
+    final int alcohol;
+
+    public String getNombre(){return grog;}
 
     public Integer getAlcohol(){
         return alcohol;
     }
 
-    public Integer getUnidades(){
-        return unidades;
-    }
-
-    public void modificarCantidad(Integer delta){
-        if(unidades + delta < 0){
-            throw new IllegalArgumentException("No se puede modificar por el monto deseado.");
-        } else {
-            unidades += delta;
-        }
+    public Grog(String Grog, int Alcohol, int Unidades){
+        this.grog = Grog;
+        this.alcohol = Alcohol;
     }
 }

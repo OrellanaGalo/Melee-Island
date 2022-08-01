@@ -4,21 +4,18 @@ import java.util.*;
 
 public class MeleeIsland {
 
-    private TreeMap<String, InfoPirata> Info_pirata;
-    private TreeMap<String, InfoGrogs> Info_grogs;
-    private TreeMap<String, Grog> grogs;
+    final TreeMap<String, InfoPirata> Info_pirata;
+    private TreeMap<String, Grogs> Grogs;         //Revisar, antes llamado "Info_grogs".
     private TreeSet<String> piratas;
     private String mas_buscapleitos;
     private String mas_picante;
     private String proximo_grog;
 
-    public TreeMap<String, InfoPirata>Info_pirata(){
+    public Map<String, InfoPirata>Info_pirata(){
         return Info_pirata;
     }
 
-    public TreeSet<String> piratas(){
-        return piratas;
-    }
+    public Set<String> piratas(){ return piratas; }
 
     public String masBuscapleitos(){
         return mas_buscapleitos;
@@ -32,13 +29,19 @@ public class MeleeIsland {
         return proximo_grog;
     }
 
-    public TreeMap<String, Grog> grogs(){
-        return grogs;
-    }
+    public TreeMap<String, Grogs> grogs(){ return Grogs; }
 
-    public MeleeIsland(TreeSet<Pirata> piratas){
-        for(Pirata pirata : piratas){
-            this.Info_pirata.put(pirata.getNombre_pirata(), new InfoPirata(pirata.getNombre_pirata(), pirata.getInsultos()));
+    public MeleeIsland(TreeSet<Pirata> p){
+
+        this.Info_pirata = new TreeMap<>();
+        this.Grogs = new TreeMap<>();
+        this.piratas = new TreeSet<>();
+        this.mas_buscapleitos = "Norberto";
+        this.mas_picante = "Mariano";
+        this.proximo_grog = "Grog XD";
+
+        for(Pirata pi : p){
+            this.Info_pirata.put(pi.getNombre(), new InfoPirata(pi.getNombre(), pi.getInsultos()));
         }
     }
 
@@ -55,47 +58,59 @@ public class MeleeIsland {
         }
     }
 
-    public void beberGrog(String nombrePirata){
-        String nombreSiguiente = "";
-        int cantidadSiguiente = 0;
-        //Grog nombresGrogs = this.grogs.get(grogs); --> No se si deberia dejar esta linea.
+    public void beberGrog(String nombre){
 
-        this.Info_pirata.get(nombrePirata).getGrog().add(proximo_grog);
-        this.grogs.get(proximo_grog).modificarCantidad(-1);
-        this.Info_pirata.get(nombrePirata).alcoholEnSangre();
+        Grogs proximo = null;
+        Grog grog = null;
 
-        while(!this.Info_grogs.isEmpty()){
-            if(cantidadSiguiente <= this.Info_grogs.get(nombreSiguiente).getUnidades()){
-                cantidadSiguiente = this.Info_grogs.get(nombreSiguiente).getUnidades();
-            } else {
-                cantidadSiguiente = cantidadSiguiente - 1;
+        //Preguntar a Nico si estas lineas deberían existir.
+        this.Info_pirata.get(nombre).getGrog().add(proximo_grog);
+        this.Grogs.get(proximo_grog).modificarCantidad(-1);
+        this.Info_pirata.get(nombre).getAlcoholEnSangre();
+
+        for(Grogs ig : Grogs.values()){
+            if(proximo == null || proximo.getUnidades() < ig.getUnidades()){
+                proximo = ig;
+            }
+        }
+
+        proximo_grog = grog.getNombre();
+    }
+
+    public void pelear(String pirata1, String pirata2){
+        // Rellenar //
+    }
+
+    public ArrayList<Pelea> peleas(){
+        return null;
+    }
+
+    public ArrayList<String> grogsBebidos(String nombre){
+        return this.Info_pirata.get(nombre).getGrog();
+    }
+
+    public int alcoholEnSangre(String nombre){
+        return this.Info_pirata.get(nombre).getAlcoholEnSangre();
+    }
+
+    public TreeSet<Insulto> insultosQueConoce(String nombre){
+        return this.Info_pirata.get(nombre).getInsultos();
+    }
+
+    public void comprarGrog(Grogs g, int n){
+
+        // Preguntar por la "exception" que se genera.
+        Grogs proximo = null;
+        Grog nombre = null;
+
+        if(this.Grogs.get(n).getUnidades() > 0) {
+            for (Grogs gs : Grogs.values()) {
+                if (proximo == null || proximo.getUnidades() < gs.getUnidades()) {
+                    proximo = gs;
+                }
             }
 
-            proximo_grog = nombreSiguiente;
+            proximo_grog = nombre.getNombre();
         }
-    }
-
-    public MeleeIsland pelear(){ // Falta desarrollar el algoritmo
-        return null;
-    }
-
-    public MeleeIsland peleas(){ // Falta desarrollar el algoritmo --> ???? de donde sale este metodo?
-        return null;
-    }
-
-    public ArrayList<String> grogsBebidos(String nombre_pirata){ // Puede que esto en vez de ser un ArrayList, deba ser un TreeSet.
-        return this.Info_pirata.get(nombre_pirata).getGrog();
-    }
-
-    public Integer alcoholEnSangre(String nombre_pirata){
-        return this.Info_pirata.get(nombre_pirata).alcoholEnSangre();
-    }
-
-    public TreeSet<Insulto> insultosQueConoce(String nombrePirata){
-        return this.Info_pirata.get(nombrePirata).getInsultos();
-    }
-
-    public void comprarGrog(){ // --> Falta completar.
-        // Rellenar // 
     }
 }

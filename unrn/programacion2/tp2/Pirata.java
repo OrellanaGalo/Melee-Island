@@ -1,27 +1,34 @@
 package unrn.programacion2.tp2;
 
+import java.util.Set;
 import java.util.TreeSet;
-public class Pirata {
 
-    private String nombre_pirata;
-    private TreeSet<Insulto> insultos;
+public class Pirata implements Comparable<Pirata>{
 
-    public String getNombre_pirata(){
+    final String nombre_pirata;
+    final Set<Insulto> insultos;
+
+    public String getNombre(){
         return nombre_pirata;
     }
 
-    public TreeSet<Insulto> getInsultos(){
+    public Set<Insulto> getInsultos(){
         return insultos;
     }
 
-    public Pirata(String nombre, TreeSet<Insulto> insultos){
-        this.nombre_pirata = nombre;
-        this.insultos = insultos;
+    public Pirata(String Nombre, TreeSet<Insulto> Insultos){
+        this.nombre_pirata = Nombre;
+        this.insultos = Insultos;
     }
 
     @Override
     public String toString() {
         return "Pirata [" + "Nombre Pirata: '" + nombre_pirata + '\'' + ", Insultos: " + insultos + ']';
+    }
+
+    @Override
+    public int compareTo(Pirata o) {
+        return 0;
     }
 }
 

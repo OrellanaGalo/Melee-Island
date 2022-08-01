@@ -2,14 +2,14 @@ package unrn.programacion2.tp2;
 
 public class Pelea {
 
-    private String nombre_pirata;
-    private Boolean resultado;
+    final String nombre_pirata;
+    final boolean resultado;
 
-    public String getNombre_pirata(){
+    public String getNombre(){
         return nombre_pirata;
     }
 
-    public boolean getResultado(){
+    public boolean gano(){
         return resultado;
     }
 
@@ -20,6 +20,6 @@ public class Pelea {
 
     @Override
     public String toString(){
-        return "Pelea [" + "Nombre Pirata: '" + nombre_pirata + "\'" + ". Resultado: " + resultado + "]";
+        return "Pelea [" + "Nombre Pirata: '" + nombre_pirata + "'" + ". Resultado: " + resultado + "]";
     }
 }
