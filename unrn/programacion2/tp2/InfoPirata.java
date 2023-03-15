@@ -23,7 +23,7 @@ public class InfoPirata {
         return alcoholEnSangre;
     }
 
-    public ArrayList<String> getGrog(){
+    public ArrayList<String> getGrogsBebidos(){
         return grogsBebidos;
     }
 

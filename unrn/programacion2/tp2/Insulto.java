@@ -20,7 +20,7 @@ public class Insulto implements Comparable<Insulto>{
 
     @Override
     public String toString() {
-        return "Insulto: '" + insulto + ", Agresividad: " + aggro;
+        return "Insulto: " + insulto + ", Agresividad: " + aggro;
     }
 
     // Uso el compareTo para revisar si hay un insulto similar preexistente en la isla y asi asignarle la misma agresividad.
